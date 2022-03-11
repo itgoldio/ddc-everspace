@@ -1,0 +1,106 @@
+{
+	"ABI version": 2,
+	"header": ["pubkey", "time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+				{"name":"collectionName","type":"bytes"},
+				{"name":"collectionSymbol","type":"bytes"},
+				{"name":"addrOwner","type":"address"},
+				{"name":"json","type":"bytes"},
+				{"name":"dataName","type":"bytes"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "supportsInterface",
+			"inputs": [
+				{"name":"_answer_id","type":"uint32"},
+				{"name":"interfaceID","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"value0","type":"bool"}
+			]
+		},
+		{
+			"name": "getName",
+			"inputs": [
+				{"name":"_answer_id","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"dataName","type":"bytes"}
+			]
+		},
+		{
+			"name": "transferOwnership",
+			"inputs": [
+				{"name":"sendGasToAddr","type":"address"},
+				{"name":"addrTo","type":"address"},
+				{"components":[{"name":"value","type":"uint128"},{"name":"payload","type":"cell"}],"name":"callbacks","type":"map(address,tuple)"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setManager",
+			"inputs": [
+				{"name":"manager","type":"address"},
+				{"name":"payload","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "returnOwnership",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getInfo",
+			"inputs": [
+				{"name":"_answer_id","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"id","type":"uint256"},
+				{"name":"addrOwner","type":"address"},
+				{"name":"addrCollection","type":"address"},
+				{"name":"addrManager","type":"address"}
+			]
+		},
+		{
+			"name": "getJSONInfo",
+			"inputs": [
+				{"name":"_answer_id","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"json","type":"bytes"}
+			]
+		}
+	],
+	"data": [
+		{"key":1,"name":"_id","type":"uint256"}
+	],
+	"events": [
+		{
+			"name": "TokenWasMinted",
+			"inputs": [
+				{"name":"owner","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "OwnershipTransferred",
+			"inputs": [
+				{"name":"oldOwner","type":"address"},
+				{"name":"newOwner","type":"address"}
+			],
+			"outputs": [
+			]
+		}
+	]
+}

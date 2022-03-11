@@ -1,0 +1,129 @@
+{
+	"ABI version": 2,
+	"header": ["pubkey", "time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+				{"name":"name","type":"bytes"},
+				{"name":"symbol","type":"bytes"},
+				{"name":"codeNft","type":"cell"},
+				{"name":"ownerPubkey","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "mintNft",
+			"inputs": [
+				{"name":"dataName","type":"bytes"},
+				{"name":"json","type":"bytes"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "withdraw",
+			"inputs": [
+				{"name":"to","type":"address"},
+				{"name":"value","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "tokenMintCallback",
+			"inputs": [
+				{"name":"id","type":"uint256"},
+				{"name":"ownerAddr","type":"address"},
+				{"name":"sendGasToAddr","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "tokenTransferCallback",
+			"inputs": [
+				{"name":"id","type":"uint256"},
+				{"name":"oldOwner","type":"address"},
+				{"name":"newOwner","type":"address"},
+				{"name":"tokenRoot","type":"address"},
+				{"name":"sendGasToAddr","type":"address"},
+				{"name":"payload","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setRemainOnNft",
+			"inputs": [
+				{"name":"remainOnNft","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getRemainOnNft",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"value0","type":"uint128"}
+			]
+		},
+		{
+			"name": "getTotalMinted",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"value0","type":"uint256"}
+			]
+		},
+		{
+			"name": "resolveCodeHashNft",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"codeHashData","type":"uint256"}
+			]
+		},
+		{
+			"name": "resolveNft",
+			"inputs": [
+				{"name":"addrRoot","type":"address"},
+				{"name":"id","type":"uint256"}
+			],
+			"outputs": [
+				{"name":"addrNft","type":"address"}
+			]
+		},
+		{
+			"name": "_owners",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_owners","type":"map(uint256,address)"}
+			]
+		},
+		{
+			"name": "_balances",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_balances","type":"map(address,uint128)"}
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+		{
+			"name": "TokenWasMinted",
+			"inputs": [
+				{"name":"nftAddr","type":"address"},
+				{"name":"creatorAddr","type":"address"}
+			],
+			"outputs": [
+			]
+		}
+	]
+}

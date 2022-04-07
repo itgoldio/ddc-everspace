@@ -1,0 +1,746 @@
+.version sol 0.58.1
+
+.pragma selector-save-my-code
+
+.macro constructor
+DROP
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7_with_init_storage$
+}
+GETGLOB 6
+THROWIF 51
+LDREF
+LDREF
+ENDS
+.loc ../contracts/Account.sol, 21
+GETGLOB 1
+PUSHREF {
+	DUP
+	SETGLOB 1
+	BLESS
+	JMPX
+}
+NEWC
+STSLICECONST x8adb35
+STREF
+STSLICE
+ENDC
+
+CALLREF {
+	CTOS
+	PUSH S0
+	PUSHSLICE x8adb35
+	SDEQ
+	PUSHREFCONT {
+		PLDREFIDX 1
+		CTOS
+		CALLREF {
+			
+			PLDREF
+			CTOS
+
+			PUSHSLICE xF4A4_
+			SDBEGINSX
+
+			LDDICT
+			NIP
+
+			LDU 10
+			NIP
+
+			PUSHSLICE xF4A1
+			SDBEGINSX
+
+			DUP
+			SREFS
+			GTINT 1
+			PUSHCONT {
+				PLDREFIDX 1
+			}
+			PUSHCONT {
+				DROP
+				NULL
+			}
+			IFELSE
+
+		}
+	}
+	PUSHREFCONT {
+		
+			PLDREF
+			CTOS
+
+			PUSHSLICE xF4A4_
+			SDBEGINSX
+
+			LDDICT
+			NIP
+
+			LDU 10
+			NIP
+
+			PUSHSLICE xF4A1
+			SDBEGINSX
+
+			DUP
+			SREFS
+			GTINT 1
+			PUSHCONT {
+				PLDREFIDX 1
+			}
+			PUSHCONT {
+				DROP
+				NULL
+			}
+			IFELSE
+
+	}
+	IFELSE
+}
+.loc ../contracts/Account.sol, 22
+DUP
+ISNULL
+THROWIF 50
+.loc ../contracts/Account.sol, 23
+DUP
+ISNULL
+THROWIF 63
+CTOS
+LDMSGADDR
+LDU 8
+DROP
+.loc ../contracts/Account.sol, 24
+GETGLOB 9
+PUSH S2
+SDEQ
+THROWIFNOT 51
+.loc ../contracts/Account.sol, 25
+ACCEPT
+.loc ../contracts/Account.sol, 27
+SETGLOB 12
+.loc ../contracts/Account.sol, 28
+SETGLOB 13
+.loc ../contracts/Account.sol, 29
+SWAP
+SETGLOB 14
+.loc ../contracts/Account.sol, 30
+SETGLOB 15
+.loc ../contracts/Account.sol, 0
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro get
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/Account.sol, 33
+LDU 32
+GETGLOB 4
+ROT
+SETINDEXQ 5
+SETGLOB 4
+ENDS
+.loc ../contracts/Account.sol, 0
+CALLREF {
+	CALL $get_internal_macro$
+}
+PUSH S5
+PUSHCONT {
+	PUSH S7
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 1
+	STUR 98
+	REVERSE 6, 0
+	NEWC
+	STSLICECONST xa98873a1
+	STU 256
+	STSLICE
+	STU 8
+	ROTREV
+	NEWC
+	STSLICE
+	STREF
+	STBREFR
+	STBREFR
+	ENDC
+	PUSHINT 0
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	OVER
+	THIRD
+	GETGLOB 9
+	ROLL 3
+	SECOND
+	NEWC
+	STSLICECONST x2_
+	STI 1
+	STSLICECONST x1_
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 1
+	STUR 106
+	REVERSE 6, 0
+	NEWC
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	STU 256
+	STSLICE
+	STU 8
+	ROTREV
+	NEWC
+	STSLICE
+	STREF
+	STBREFR
+	STBREFR
+	ENDC
+	GETGLOB 4
+	INDEX 4
+}
+IFELSE
+SENDRAWMSG
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro get_internal_macro
+.loc ../contracts/Account.sol, 40
+GETGLOB 4
+PUSHINT 0
+SETINDEXQ 2
+PUSHINT 64
+SETINDEXQ 4
+FALSE
+SETINDEXQ 1
+SETGLOB 4
+GETGLOB 10
+GETGLOB 11
+GETGLOB 12
+GETGLOB 13
+GETGLOB 14
+.loc ../contracts/Account.sol, 0
+
+.macro proxingTransaction
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/Account.sol, 49
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+LDI 1
+LDREF
+ENDS
+.loc ../contracts/Account.sol, 0
+CALLREF {
+	CALL $proxingTransaction_internal_macro$
+}
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.globl	proxingTransaction_internal
+.type	proxingTransaction_internal, @function
+CALL $proxingTransaction_internal_macro$
+
+.macro proxingTransaction_internal_macro
+.loc ../contracts/Account.sol, 70
+GETGLOB 9
+CALLREF {
+	CALL $isOwner_internal_macro$
+}
+TRUE
+EQUAL
+THROWIFNOT 100
+.loc ../contracts/Account.sol, 51
+PUSHINT 0
+PUSHINT 4
+RAWRESERVE
+.loc ../contracts/Account.sol, 52
+ROTREV
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+PUSHINT 1
+STUR 111
+STREF
+ENDC
+PUSHINT 128
+SENDRAWMSG
+.loc ../contracts/Account.sol, 0
+
+.macro createAccountConsumer
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/Account.sol, 55
+OVER
+PUSHCONT {
+	LDREF
+	LDREF
+	ENDS
+	CTOS
+}
+PUSHCONT {
+	LDREF
+}
+IFELSE
+LDMSGADDR
+ENDS
+.loc ../contracts/Account.sol, 0
+CALLREF {
+	CALL $createAccountConsumer_internal_macro$
+}
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.globl	createAccountConsumer_internal
+.type	createAccountConsumer_internal, @function
+CALL $createAccountConsumer_internal_macro$
+
+.macro createAccountConsumer_internal_macro
+.loc ../contracts/Account.sol, 70
+GETGLOB 9
+CALLREF {
+	CALL $isOwner_internal_macro$
+}
+TRUE
+EQUAL
+THROWIFNOT 100
+.loc ../contracts/Account.sol, 56
+GETGLOB 12
+EQINT 1
+GETGLOB 12
+EQINT 0
+OR
+THROWIFNOT 100
+.loc ../contracts/Account.sol, 57
+PUSHINT 0
+PUSHINT 4
+RAWRESERVE
+.loc ../contracts/Account.sol, 59
+GETGLOB 9
+ROT
+GETGLOB 10
+GETGLOB 13
+NEWC
+STSLICECONST x62_
+STSLICE
+PUSHINT 1
+STUR 111
+ROLLREV 4
+NEWC
+STSLICECONST x29eacbb8
+STU 256
+STREF
+STSLICE
+SWAP
+NEWC
+STSLICE
+STBREFR
+STBREFR
+ENDC
+PUSHINT 128
+SENDRAWMSG
+.loc ../contracts/Account.sol, 0
+
+.macro createAccountPlatformManager
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc ../contracts/Account.sol, 62
+OVER
+PUSHCONT {
+	LDREF
+	LDREF
+	ENDS
+	CTOS
+}
+PUSHCONT {
+	LDREF
+}
+IFELSE
+LDMSGADDR
+ENDS
+.loc ../contracts/Account.sol, 0
+CALLREF {
+	CALL $createAccountPlatformManager_internal_macro$
+}
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.globl	createAccountPlatformManager_internal
+.type	createAccountPlatformManager_internal, @function
+CALL $createAccountPlatformManager_internal_macro$
+
+.macro createAccountPlatformManager_internal_macro
+.loc ../contracts/Account.sol, 70
+GETGLOB 9
+CALLREF {
+	CALL $isOwner_internal_macro$
+}
+TRUE
+EQUAL
+THROWIFNOT 100
+.loc ../contracts/Account.sol, 63
+GETGLOB 12
+EQINT 1
+THROWIFNOT 100
+.loc ../contracts/Account.sol, 64
+PUSHINT 0
+PUSHINT 4
+RAWRESERVE
+.loc ../contracts/Account.sol, 66
+GETGLOB 9
+ROT
+GETGLOB 10
+GETGLOB 13
+NEWC
+STSLICECONST x62_
+STSLICE
+PUSHINT 1
+STUR 111
+ROLLREV 4
+NEWC
+STSLICECONST x69ab305d
+STU 256
+STREF
+STSLICE
+SWAP
+NEWC
+STSLICE
+STBREFR
+STBREFR
+ENDC
+PUSHINT 128
+SENDRAWMSG
+.loc ../contracts/Account.sol, 0
+
+.globl	isOwner_internal
+.type	isOwner_internal, @function
+CALL $isOwner_internal_macro$
+
+.macro isOwner_internal_macro
+.loc ../contracts/Account.sol, 75
+GETGLOB 11
+SDEQ
+.loc ../contracts/Account.sol, 0
+
+.macro c4_to_c7
+PUSHROOT
+CTOS
+LDU 256 ; pubkey c4
+LDU 64 ; pubkey timestamp c4
+LDU 1 ; ctor flag
+NIP
+LDU 256
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDU 8
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+LDREF
+ENDS
+SETGLOB 15
+SETGLOB 14
+SETGLOB 13
+SETGLOB 12
+SETGLOB 11
+SETGLOB 10
+SETGLOB 3
+SETGLOB 2
+
+.macro c4_to_c7_with_init_storage
+PUSHROOT
+CTOS
+SBITS
+GTINT 1
+PUSHCONT {
+	PUSHINT 0
+	PUSHROOT
+	CTOS
+	PLDDICT ; D
+	PUSHINT 1
+	OVER
+	PUSHINT 64
+	DICTUGET
+	PUSHCONT {
+		PLDU 256
+	}
+	PUSHCONT {
+		PUSHINT 0
+	}
+	IFELSE
+	PUSHINT 2
+	PUSH S2
+	PUSHINT 64
+	DICTUGET
+	PUSHCONT {
+		PUSHREFSLICE {
+			.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+		}
+	}
+	IFNOT
+	PUSHINT 0
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	PUSHREF {
+	}
+	DUP
+	SETGLOB 15
+	SETGLOB 14
+	SETGLOB 13
+	SETGLOB 12
+	SETGLOB 11
+	SETGLOB 10
+	PUSHINT 64
+	DICTUGET
+	THROWIFNOT 61
+	PLDU 256
+	SETGLOB 2
+	PUSHINT 0 ; timestamp
+	SETGLOB 3
+}
+IFREFELSE {
+	CALL $c4_to_c7$
+}
+
+.macro c7_to_c4
+GETGLOB 15
+GETGLOB 14
+GETGLOB 13
+GETGLOB 12
+GETGLOB 11
+GETGLOB 10
+GETGLOB 3
+GETGLOB 2
+NEWC
+STU 256
+STU 64
+STONE
+STU 256
+ROLLREV 5
+NEWC
+STSLICE
+STU 8
+ROLLREV 3
+NEWC
+STSLICE
+STREF
+STREF
+STBREFR
+STBREFR
+ENDC
+POPROOT
+
+.macro upd_only_time_in_c4
+PUSHROOT
+CTOS
+LDU 256
+LDU 64
+NIP
+GETGLOB 3
+ROT
+NEWC
+STU 256
+STU 64
+STSLICE
+ENDC
+POPROOT
+
+.internal-alias :main_internal, 0
+.internal :main_internal
+PUSHROOT
+CTOS
+SBITS
+NEQINT 1
+SETGLOB 6
+PUSH S2
+CTOS
+LDU 4 ; bounced tail
+LDMSGADDR ; bounced src tail
+DROP
+SETGLOB 9
+MODPOW2 1
+GETGLOB 4
+TRUE
+SETINDEXQ 1
+PUSHINT 10000000
+SETINDEXQ 2
+NULL
+SETINDEXQ 3
+PUSHINT 0
+SETINDEXQ 4
+SETGLOB 4
+IFRET
+OVER
+SEMPTY ; isEmpty
+IFJMPREF {
+	GETGLOB 6
+	THROWIFNOT 76
+}
+OVER
+LDUQ 32  ; [funcId] body' ok
+THROWIFNOT 60
+OVER
+IFNOTJMPREF {
+	GETGLOB 6
+	THROWIFNOT 76
+}
+SWAP
+CALLREF {
+	CALL $public_function_selector$
+}
+THROW 60
+
+.internal-alias :main_external, -1
+.internal :main_external
+PUSHROOT
+CTOS
+SBITS
+NEQINT 1
+SETGLOB 6
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SETGLOB 9
+OVER
+CALLREF {
+	CALL $c4_to_c7_with_init_storage$
+}
+LDU 1 ; haveSign msgSlice
+SWAP
+PUSHCONT {
+	PUSHINT 512
+	LDSLICEX ; signatureSlice msgSlice
+	DUP
+	HASHSU ; signatureSlice msgSlice hashMsgSlice
+	SWAP
+	LDU 1 ; signatureSlice hashMsgSlice havePubkey msgSlice
+	SWAP
+	PUSHCONT {
+		LDU 256 ; signatureSlice hashMsgSlice pubkey msgSlice
+		XCHG S3
+		SWAP
+	}
+	PUSHCONT {
+		XCHG S2
+		GETGLOB 2
+	}
+	IFELSE
+	CHKSIGNU ; msgSlice isSigned
+	THROWIFNOT 40
+}
+PUSHCONT {
+	LDU 1 ; havePubkey msgSlice
+	SWAP
+	THROWIF 58
+}
+IFELSE
+LDU 64 ; timestamp msgSlice
+SWAP
+CALL $replay_protection_macro$
+LDU 32 ; expireAt msgSlice
+SWAP
+NOW ; msgSlice expireAt now
+GREATER ; msgSlice expireAt>now
+THROWIFNOT 57
+LDU 32 ; funcId body
+SWAP
+CALLREF {
+	CALL $public_function_selector$
+}
+THROW 60
+
+.macro public_function_selector
+DUP
+PUSHINT 696808353
+LEQ
+IFJMPREF {
+	DUP
+	PUSHINT 221695844
+	EQUAL
+	IFJMPREF {
+		CALL $createAccountPlatformManager$
+	}
+	DUP
+	PUSHINT 387219707
+	EQUAL
+	IFJMPREF {
+		CALL $createAccountConsumer$
+	}
+	DUP
+	PUSHINT 471512389
+	EQUAL
+	IFJMPREF {
+		CALL $constructor$
+	}
+	DUP
+	PUSHINT 696808353
+	EQUAL
+	IFJMPREF {
+		CALL $get$
+	}
+}
+DUP
+PUSHINT 1855173777
+EQUAL
+IFJMPREF {
+	CALL $proxingTransaction$
+}
+
